@@ -1,5 +1,7 @@
 @import "./transitions/slide.scss";
 @import "./transitions/fading.scss";
+@import "./Colors.scss";
+@import "./UI/CodeWindow.scss";
 
 html,
 body {
@@ -8,11 +10,12 @@ body {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   width: 100%;
+  background-color: #f7f8ff;
 
   .container {
     width: 100%;
@@ -46,4 +49,60 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 999;
+}
+
+.row {
+  display: flex;
+
+  .col {
+    flex: 1;
+  }
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: white;
+
+  .content {
+    width: 94%;
+    max-width: 1080px;
+    padding: 20px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      padding: 5px;
+      margin: 0;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      a:hover {
+        color: $primary
+      }
+    }
+  }
+}
+
+/* .p-a {
+  padding: 20px;
+} */
+
+.p-r {
+  padding-right: 20px;
 }

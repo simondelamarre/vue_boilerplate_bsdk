@@ -1,5 +1,5 @@
 <template>
-  <PageContent msg="BSDK">
+  <PageContent msg="About">
     <div>about this boilerplate</div>
   </PageContent>
 </template>

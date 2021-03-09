@@ -1,0 +1,38 @@
+.codeWindow {
+    position: relative;
+    background: #4d4464;
+    padding-top: 20px;
+    padding-bottom: 7px;
+    border-radius: 7px;
+    position: sticky;
+}
+
+.codeWindow::before,
+.codeWindow::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    top: 6px;
+    left: 10px;
+    background: #ff6666;
+}
+
+.codeWindow::after {
+    left: 25px;
+    background: green;
+}
+
+.dark-editor {
+    background: #12003b;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    max-height: 250px;
+    overflow: scroll;
+
+    .token.operator {
+        background: #12003b;
+    }
+}
