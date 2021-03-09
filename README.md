@@ -31,6 +31,10 @@ The project models and other repositories are currrently under developpement.
 Also you'll find a complete usecase about the example APIM gate from our loopback-boilerplate.
 Tto learn about build and deploy an API on APIM you can trust this example boilerplate builded with LoopBack here https://github.com/simondelamarre/bige_loopback_boilerplate
 
+## RUN LOCALLY 
+To run this project locally, please ensure that your localhost port is set to 8081.
+This port has been enabled on the application whitelist setup : http://localhoost:8081
+no others ports...
 
 ## Project setup
 ```
