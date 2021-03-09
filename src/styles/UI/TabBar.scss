@@ -1,0 +1,65 @@
+$selectedColor: #5761ff;
+$hoverColor: #e7e9ff;
+$textColor: gray;
+$backgroundColor: white;
+
+.tabbar::-webkit-scrollbar {
+  width: 0 !important;
+  display: none;
+}
+
+.tabbar {
+  background-color: $backgroundColor;
+  overflow: scroll;
+  flex: 1;
+  display: flex;
+  overflow: auto;
+  position: relative;
+  /* this will hide the scrollbar in mozilla based browsers */
+  overflow: -moz-scrollbars-none;
+  /* this will hide the scrollbar in internet explorers */
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  border-bottom: 1px solid #e3e3e3;
+
+  .tabContent {
+    display: flex;
+    display: inline-flex;
+    min-height: min-content;
+    min-width: 100%;
+    flex-flow: inline;
+  }
+
+  .tab {
+    flex: 1;
+    white-space: nowrap;
+    padding: 10px;
+    cursor: pointer;
+    color: $textColor;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none !important;
+  }
+
+  .tab:hover {
+    background: $hoverColor;
+  }
+
+  .tab.selected {
+    color: $selectedColor;
+  }
+
+  .cursor {
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+    background: $selectedColor;
+    height: 3px;
+    width: 50px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    display: none;
+    transition: all 0.2s linear;
+  }
+}

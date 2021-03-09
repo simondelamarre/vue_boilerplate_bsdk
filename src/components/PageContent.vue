@@ -1,6 +1,9 @@
 <template>
-  <div class="hello">
-    <h1>BSDK VUE TYPESCRIPT BOILERPLATE</h1>
+  <div class="container">
+    <div class="content">
+      <h1>{{ msg }}</h1>
+      <slot></slot>
+    </div>
   </div>
 </template>
 

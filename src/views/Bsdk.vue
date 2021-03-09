@@ -1,6 +1,6 @@
 <template>
   <PageContent msg="BSDK">
-    <div>about this boilerplate</div>
+    <div>about bige SDK</div>
   </PageContent>
 </template>
 <script lang="ts">
@@ -12,5 +12,5 @@ import PageContent from "@/components/PageContent.vue"; // @ is an alias to /src
     PageContent,
   },
 })
-export default class About extends Vue {}
+export default class BSDK extends Vue {}
 </script>

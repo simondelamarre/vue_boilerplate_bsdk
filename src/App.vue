@@ -1,46 +1,60 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="stickyHeader">
+      <Header></Header>
+      <TabBar
+        name="AppTab"
+        :items="tabItems"
+        :callback="setTab"
+        @setTabIndex="setTab"
+      ></TabBar>
     </div>
-    <router-view />
+    <transition :name="transitionName" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 <script>
 import Header from "./components/UI/Header";
+import TabBar from "./components/UI/TabBar";
 export default {
-  components: { Header },
+  data() {
+    return {
+      tabItems: [
+        { name: "Home", url: "/" },
+        { name: "About", url: "/about" },
+        { name: "BIGE SDK", url: "/bsdk" },
+        { name: "BSDK User Interface", url: "/ui" },
+        { name: "Modules", url: "/modules" },
+        { name: "Repositories", url: "/repositories" },
+      ],
+      currentTab: 0,
+      transitionName: "slide-right",
+    };
+  },
+  watch: {
+    $route(to) {
+      /* const toDepth = to.path.split("/").length;
+      const fromDepth = from.path.split("/").length; */
+      const findIndex = this.tabItems.findIndex((e) => e.url === to.path);
+      this.transitionName =
+        findIndex > this.currentTab ? "slide-right" : "slide-left";
+      console.log("this.transitionName ", this.transitionName);
+    },
+  },
+  components: { Header, TabBar },
   created() {
     this.$store.dispatch("initAPIM");
+  },
+  methods: {
+    setTab(e) {
+      this.currentTab = parseInt(e);
+      // this.$router.push({ path: this.tabItems[e].url });
+    },
   },
 };
 </script>
 <style lang="scss">
-html,
-body {
-  padding: 0;
-  margin: 0;
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  width: 100%;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+@import "../node_modules/bigesdk/dist/css/BUI.css";
+@import "./styles/index.scss";
 </style>

@@ -1,11 +1,14 @@
 <template>
   <div class="header">
     <div class="logo">
-      <img
-        src="https://storage.googleapis.com/storage.bige.dev/SVG/FONT_DARK_DENSE.svg"
-        height="50"
-      />
+      <router-link to="/">
+        <img
+          src="https://storage.googleapis.com/storage.bige.dev/SVG/FONT_DARK_DENSE.svg"
+          height="50"
+        />
+      </router-link>
     </div>
+    <div class="spacer"></div>
     <div class="actions">
       <div id="account"></div>
     </div>
@@ -14,7 +17,7 @@
 <script>
 export default {
   mounted() {
-    /* this.$store.state.BSDK.APIM.UI.accountModule(
+    this.$store.state.BSDK.APIM.UI.accountModule(
       document.querySelector("#account"),
       false,
       {
@@ -23,7 +26,7 @@ export default {
         size: "sm",
         ripple: true,
       }
-    ); */
+    );
   },
 };
 </script>
@@ -41,8 +44,11 @@ export default {
       margin: 10px;
     }
   }
-  .actions {
+  .spacer {
     flex: 1;
+  }
+  .actions {
+    margin: 20px;
   }
 }
 </style>

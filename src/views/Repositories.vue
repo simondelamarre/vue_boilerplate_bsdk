@@ -1,6 +1,6 @@
 <template>
-  <PageContent msg="BSDK">
-    <div>about this boilerplate</div>
+  <PageContent msg="Repositories">
+    <div>Why using repoositories according to vuex state</div>
   </PageContent>
 </template>
 <script lang="ts">
@@ -12,5 +12,5 @@ import PageContent from "@/components/PageContent.vue"; // @ is an alias to /src
     PageContent,
   },
 })
-export default class About extends Vue {}
+export default class Ui extends Vue {}
 </script>
