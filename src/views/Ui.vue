@@ -71,6 +71,77 @@
 
     <div class="row">
       <div class="col p-r">
+        <h2>Connect with NO-UI</h2>
+        <div>
+          Obviously you can connect without BSDK UI. If you don't want to embed
+          BUI stylesheet or create your own process...<br />
+          In this example boilerplate BSDK is integrated as an Object WINDOW so
+          you have access to the BSDK API and other setups gates, endpoints from
+          window.APIM...
+        </div>
+        <p>
+          Note that by using the API and without BSDK UI, you are note able to
+          use cheatCode mode also for chrome extension the uses of BUI is the
+          only way to connect.<br />
+          By calling api.login() the user will receive an email to connect or
+          create an account.
+        </p>
+      </div>
+      <div class="col">
+        <br /><br />
+        <div class="codeWindow">
+          <prism-editor
+            class="dark-editor"
+            :highlight="highlighter"
+            v-model="connectApiCall"
+            line-numbers
+            lang="javascript"
+            :insertSpaces="true"
+          >
+          </prism-editor>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col p-r">
+        <h2>Sign out / logout with NO-UI</h2>
+        <div>
+          To disconnect an User, thats the only same way...<br />
+          Just no params are required due to the BSDK tokens logic...
+        </div>
+      </div>
+      <div class="col">
+        <br /><br />
+        <div class="codeWindow">
+          <prism-editor
+            class="dark-editor"
+            :highlight="highlighter"
+            v-model="signoutApiCall"
+            line-numbers
+            lang="javascript"
+            :insertSpaces="true"
+          >
+          </prism-editor>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <h2 class="centered">BSDK.UI Stylesheet helpers</h2>
+
+    <br />
+    <br />
+    <br />
+
+    <div class="row">
+      <div class="col p-r">
         <h2>.BUI class and stylesheet</h2>
         <div>
           BUI provide you an XXS stylesheet framework, this is a list of the
@@ -379,6 +450,11 @@ import PageContent from "@/components/PageContent.vue"; // @ is an alias to /src
 export default {
   data() {
     return {
+      connectApiCall: `await APIM.api.login({
+  email:"user.email@domain.com", 
+  cheatCode:false
+})`,
+      signoutApiCall: `APIM.api.logout()`,
       accountCode: `this.$store.state.BSDK.APIM.UI.accountModule(
       document.querySelector("#account"),
       false,
@@ -547,7 +623,7 @@ export default {
   mounted() {
     this.$store.state.BSDK.APIM.UI.connectButton(
       document.querySelector("#connectButtonSample"), // target dom element for UI
-      true, // UI form BSDK || false for basic redirection
+      false, // UI form BSDK || false for basic redirection
       {
         // buttonDataset :: options button
         rounded: false,
