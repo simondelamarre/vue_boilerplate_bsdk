@@ -6,7 +6,15 @@
           This is a basic vuejs progressive web app writted in typescript and
           from a basic vue-cli default setup without resources and any
           stylesheet framework thatt allow you to work and use your favorite one
-          or to work from scratch for small signle page webapps...
+          or to work from scratch for small signle page webapps...<br />
+          You can find this boilerPlate source code on a public GitHub
+          repository her:<br />
+          <a
+            href="https://github.com/simondelamarre/vue_boilerplate_bsdk"
+            target="_blank"
+          >
+            https://github.com/simondelamarre/vue_boilerplate_bsdk
+          </a>
         </p>
         <h2>BSDK</h2>
         <p>

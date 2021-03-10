@@ -29,6 +29,7 @@ export default {
         { name: "BSDK User Interface", url: "/ui" },
         { name: "Modules", url: "/modules" },
         { name: "Repositories", url: "/repositories" },
+        { name: "Test Example", url: "/example" },
       ],
       currentTab: 0,
       transitionName: "",
@@ -36,12 +37,9 @@ export default {
   },
   watch: {
     $route(to) {
-      /* const toDepth = to.path.split("/").length;
-      const fromDepth = from.path.split("/").length; */
       const findIndex = this.tabItems.findIndex((e) => e.url === to.path);
       this.transitionName =
         findIndex > this.currentTab ? "slide-right" : "slide-left";
-      console.log("this.transitionName ", this.transitionName);
     },
   },
   components: { Header, TabBar, Footer },
@@ -51,7 +49,6 @@ export default {
   methods: {
     setTab(e) {
       this.currentTab = parseInt(e);
-      // this.$router.push({ path: this.tabItems[e].url });
     },
   },
 };
