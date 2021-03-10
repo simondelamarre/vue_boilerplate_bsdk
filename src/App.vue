@@ -45,8 +45,8 @@ export default {
     },
   },
   components: { Header, TabBar, Footer },
-  beforeMount() {
-    this.$store.dispatch("initAPIM");
+  async beforeMount() {
+    await this.$store.dispatch("initAPIM");
   },
   methods: {
     setTab(e) {

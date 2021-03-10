@@ -6,12 +6,13 @@
  **/
 
 import { Module } from "vuex";
-import BsdkRepository from "../../repositories/BsdkReposittory";
+import BsdkRepository from "../../repositories/BsdkRepository";
 
 const BSDK: Module<any, any> = {
   state: {
     APIM: null,
-    message: null
+    message: null,
+    setup: null
   },
   mutations: {
     APIM: (state: { APIM: any }, res: any) => {
@@ -23,9 +24,10 @@ const BSDK: Module<any, any> = {
   },
   actions: {
     async initAPIM({ commit }: any) {
+      console.log('init apim -----------------');
       const APIM = await BsdkRepository.getInstance();
       return commit('APIM', APIM);
-    }
+    },
   },
 }
 export default BSDK;

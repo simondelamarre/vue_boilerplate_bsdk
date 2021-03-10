@@ -16,17 +16,32 @@
 </template>
 <script>
 export default {
+  computed: {
+    APIM() {
+      return this.$store.state.BSDK.APIM;
+    },
+  },
+  watch: {
+    APIM() {
+      this.setAccountModule();
+    },
+  },
   mounted() {
-    this.$store.state.BSDK.APIM.UI.accountModule(
-      document.querySelector("#account"),
-      false,
-      {
-        align: "pr",
-        displayName: true,
-        size: "sm",
-        ripple: true,
-      }
-    );
+    if (this.$store.state.BSDK.APIM) this.setAccountModule();
+  },
+  methods: {
+    setAccountModule() {
+      this.$store.state.BSDK.APIM.UI.accountModule(
+        document.querySelector("#account"),
+        false,
+        {
+          align: "pr",
+          displayName: true,
+          size: "sm",
+          ripple: true,
+        }
+      );
+    },
   },
 };
 </script>
