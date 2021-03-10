@@ -4,6 +4,7 @@
       <h1>{{ msg }}</h1>
       <slot></slot>
     </div>
+    <div class="spacer"></div>
   </div>
 </template>
 

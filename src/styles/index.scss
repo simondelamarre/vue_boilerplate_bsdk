@@ -23,11 +23,13 @@ body {
     text-align: center;
     justify-content: center;
     display: flex;
+    padding-bottom: 100px;
 
     .content {
       width: 100%;
       max-width: 1080px;
       text-align: left;
+
     }
   }
 }
@@ -115,4 +117,5 @@ body {
 
 .group {
   position: relative;
-  margin-bottom: 20px;}
+  margin-bottom: 20px;
+}

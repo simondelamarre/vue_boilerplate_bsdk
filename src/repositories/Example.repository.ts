@@ -52,4 +52,13 @@ export default {
       console.error(err);
     }
   },
+  async needUserLogged(params: { [key: string]: any }, query: Partial<ExampleQuery>, body: Partial<ExampleModel>) {
+    try {
+      query = Object.assign(ExampleRequest, query);
+      const response = await window.APIM.gates.example.endpoint['get:/example/userLogged'].call(params, query, body, null);
+      return response;
+    } catch (err) {
+      return err;
+    }
+  },
 };

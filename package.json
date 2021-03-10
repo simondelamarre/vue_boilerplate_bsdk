@@ -11,7 +11,7 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "bigesdk": "^1.0.80",
+    "bigesdk": "^1.0.81",
     "core-js": "^3.9.1",
     "express": "^4.17.1",
     "prismjs": "^1.23.0",
