@@ -21,8 +21,7 @@ export const ExampleRequest: ExampleQuery = {
   "limit": 100,
   "skip": 0,
   "order": "name DESC",
-  "where": {
-  },
+  "where": {},
   "fields": {
     "ID": true,
     "name": true

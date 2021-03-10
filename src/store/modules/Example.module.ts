@@ -15,20 +15,20 @@ const Example: Module<any, any> = {
     examples: null
   },
   mutations: {
-    examples: (state: { apis: any }, res: any) => {
-      state.apis = res
+    examples: (state: { examples: any }, res: any) => {
+      state.examples = res
     },
   },
   actions: {
     async getExamples({
       commit
-    }: any, payload: ExampleQuery) {
+    }: any, payload: Partial<ExampleQuery>) {
       const examples = await ExampleRepository.get({}, payload, {});
       return commit('examples', examples);
     },
     async countExamples({
       commit
-    }: any, payload: ExampleQuery) {
+    }: any, payload: Partial<ExampleQuery>) {
       const examples = await ExampleRepository.count({}, payload, {});
       return commit('examples', examples);
     },
@@ -40,8 +40,8 @@ const Example: Module<any, any> = {
     },
     async putExample({
       commit
-    }: any, payload: { ID: number, body: Partial<ExampleModel> }) {
-      const examples = await ExampleRepository.put({ ID: payload.ID }, {}, payload.body);
+    }: any, payload: ExampleModel) {
+      const examples = await ExampleRepository.put({ ID: payload.ID }, {}, { name: payload.name });
       return commit('examples', examples);
     },
     async deleteExample({
@@ -52,4 +52,5 @@ const Example: Module<any, any> = {
     },
   },
 }
+
 export default Example;
