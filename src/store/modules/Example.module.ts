@@ -12,43 +12,57 @@ import ExampleRepository from "../../repositories/Example.repository";
 
 const Example: Module<any, any> = {
   state: {
-    examples: null
+    examples: null,
+    example: null
   },
   mutations: {
     examples: (state: { examples: any }, res: any) => {
       state.examples = res
+    },
+    example: (state: { example: any }, res: any) => {
+      state.example = res
     },
   },
   actions: {
     async getExamples({
       commit
     }: any, payload: Partial<ExampleQuery>) {
-      const examples = await ExampleRepository.get({}, payload, {});
-      return commit('examples', examples);
+      const result = await ExampleRepository.get({}, payload, {});
+      return commit('examples', result);
     },
     async countExamples({
       commit
     }: any, payload: Partial<ExampleQuery>) {
-      const examples = await ExampleRepository.count({}, payload, {});
-      return commit('examples', examples);
+      const result = await ExampleRepository.count({}, payload, {});
+      return commit('examples', result);
     },
     async postExample({
       commit
     }: any, payload: Partial<ExampleModel>) {
-      const examples = await ExampleRepository.post({}, {}, payload);
-      return commit('examples', examples);
+      const result = await ExampleRepository.post({}, {}, payload);
+      this.dispatch('getExamples', {});
+      return commit('example', result);
     },
     async putExample({
       commit
     }: any, payload: ExampleModel) {
-      const examples = await ExampleRepository.put({ ID: payload.ID }, {}, { name: payload.name });
-      return commit('examples', examples);
+      const result = await ExampleRepository.put({ id: payload.ID }, {}, { name: payload.name });
+      this.dispatch('getExamples', {});
+      return commit('example', result);
+    },
+    async patchExample({
+      commit
+    }: any, payload: ExampleModel) {
+      const result = await ExampleRepository.patch({ id: payload.ID }, {}, { name: payload.name });
+      this.dispatch('getExamples', {});
+      return commit('example', result);
     },
     async deleteExample({
       commit
     }: any, payload: { ID: number }) {
-      const examples = await ExampleRepository.delete({ ID: payload.ID }, {}, {});
-      return commit('examples', examples);
+      const result = await ExampleRepository.delete({ id: payload.ID }, {}, {});
+      this.dispatch('getExamples', {});
+      return commit('example', result);
     },
   },
 }

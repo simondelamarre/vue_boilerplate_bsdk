@@ -29,7 +29,7 @@ export default {
         { name: "BSDK User Interface", url: "/ui" },
         { name: "Modules", url: "/modules" },
         { name: "Repositories", url: "/repositories" },
-        { name: "Test Example", url: "/example" },
+        { name: "Test Example Module", url: "/example" },
       ],
       currentTab: 0,
       transitionName: "",

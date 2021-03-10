@@ -574,14 +574,5 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.BUI {
-  form {
-    width: 100%;
-  }
-}
-.group {
-  position: relative;
-  margin-bottom: 20px;
-}
+<style lang="scss" >
 </style>
