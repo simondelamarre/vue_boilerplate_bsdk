@@ -1,7 +1,19 @@
 <template>
   <PageContent msg="methods:/example">
     <div>
-      This is a basic test APIs calls from Example module state dispatcher.
+      This is a basic test APIs calls from Example module state dispatcher.<br />
+    </div>
+    <br />
+    <div class="BUI">
+      <div class="alert dan">
+        <div class="content">
+          <div class="message">
+            Note that example API is running as free hobby dyno on heroku also
+            when this API is down the first API call will take few several
+            sedonds
+          </div>
+        </div>
+      </div>
     </div>
     <div class="row BUI">
       <div class="col pl">
