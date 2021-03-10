@@ -1,13 +1,14 @@
-
 /**
  * Example Module
  * This is a store module example that allow you to divide and access state from name...
  * You can use  repository factory to load somes of repo or directly invoque repos like in the example below
  * import Repository from "../../repositories/RepositoryFactory";
  **/
-import { BSDK } from "bigesdk";
 
-export default {
+import { Module } from "vuex";
+import BsdkRepository from "../../repositories/BsdkReposittory";
+
+const BSDK: Module<any, any> = {
   state: {
     APIM: null,
     message: null
@@ -22,15 +23,9 @@ export default {
   },
   actions: {
     async initAPIM({ commit }: any) {
-      const APIM = new BSDK.BSDK(
-        process.env.VUE_APP_BSDK_KEY,
-        window.document.body,
-        (e: any) => {
-          commit('message', e)
-        },
-        false
-      )
-      return commit('APIM', APIM)
+      const APIM = await BsdkRepository.getInstance();
+      return commit('APIM', APIM);
     }
   },
 }
+export default BSDK;

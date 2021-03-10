@@ -20,7 +20,7 @@ about BSDK (npm package)
 https://www.npmjs.com/package/bigesdk
 
 
-## Wich a demo ?
+## Wish a demo ?
 
 I just deployed this boilerplate as example on an heroku hobby free dyno.
 > https://bige-sample-app.herokuapp.com/

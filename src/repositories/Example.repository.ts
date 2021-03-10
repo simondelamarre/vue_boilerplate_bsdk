@@ -1,28 +1,28 @@
-import store from '../store/index';
+import { ExampleQuery, ExampleModel } from "../models/Example.datamodel";
 
 export default {
-  get(params: any) {
-    console.log('TODO get example from BSDK ', params);
-    return ["hello"];
+  async get(params: { [key: string]: any }, query: Partial<ExampleQuery>, body: Partial<ExampleModel>) {
+    const response = await window.APIM.gates.example.endpoint['get:example/'].call(params, query, body, null);
+    return response;
   },
-  count(params: any) {
-    console.log('TODO get example from BSDK ', params);
-    return ["hello"];
+  async count(params: { [key: string]: any }, query: Partial<ExampleQuery>, body: Partial<ExampleModel>) {
+    const response = await window.APIM.gates.example.endpoint['get:example/'].call(params, query, body, null);
+    return response;
   },
-  post(params: any) {
-    console.log('TODO get example from BSDK ', params);
-    return ["hello"];
+  async post(params: { [key: string]: any }, query: Partial<ExampleQuery>, body: Partial<ExampleModel>) {
+    const response = await window.APIM.gates.example.endpoint['post:example/'].call(params, query, body, null);
+    return response;
   },
-  put(params: any) {
-    console.log('TODO get example from BSDK ', params);
-    return ["hello"];
+  async put(params: { ID: number }, query: Partial<ExampleQuery>, body: Partial<ExampleModel>) {
+    const response = await window.APIM.gates.example.endpoint['put:example/{id}'].call(params, query, body, null);
+    return response;
   },
-  patch(params: any) {
-    console.log('TODO get example from BSDK ', params);
-    return ["hello"];
+  async patch(params: { ID: number }, query: Partial<ExampleQuery>, body: Partial<ExampleModel>) {
+    const response = await window.APIM.gates.example.endpoint['patch:example/{id}'].call(params, query, body, null);
+    return response;
   },
-  delete(params: any) {
-    console.log('TODO get example from BSDK ', params);
-    return ["hello"];
+  async delete(params: { ID: number }, query: Partial<ExampleQuery>, body: Partial<ExampleModel>) {
+    const response = await window.APIM.gates.example.endpoint['put:example/{id}'].call(params, query, body, null);
+    return response;
   },
 };

@@ -45,7 +45,7 @@ export default {
     },
   },
   components: { Header, TabBar, Footer },
-  created() {
+  beforeMount() {
     this.$store.dispatch("initAPIM");
   },
   methods: {

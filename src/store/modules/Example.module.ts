@@ -6,9 +6,11 @@
  **/
 
 // import store from "../index";
+import { ExampleModel, ExampleQuery } from "@/models/Example.datamodel";
+import { Module } from "vuex";
 import ExampleRepository from "../../repositories/Example.repository";
 
-export default {
+const Example: Module<any, any> = {
   state: {
     examples: null
   },
@@ -20,33 +22,34 @@ export default {
   actions: {
     async getExamples({
       commit
-    }: any, payload: any) {
-      const examples = await ExampleRepository.get(payload);
+    }: any, payload: ExampleQuery) {
+      const examples = await ExampleRepository.get({}, payload, {});
       return commit('examples', examples);
     },
     async countExamples({
       commit
-    }: any, payload: any) {
-      const examples = await ExampleRepository.count(payload);
+    }: any, payload: ExampleQuery) {
+      const examples = await ExampleRepository.count({}, payload, {});
       return commit('examples', examples);
     },
     async postExample({
       commit
-    }: any, payload: any) {
-      const examples = await ExampleRepository.post(payload);
+    }: any, payload: Partial<ExampleModel>) {
+      const examples = await ExampleRepository.post({}, {}, payload);
       return commit('examples', examples);
     },
     async putExample({
       commit
-    }: any, payload: any) {
-      const examples = await ExampleRepository.put(payload);
+    }: any, payload: { ID: number, body: Partial<ExampleModel> }) {
+      const examples = await ExampleRepository.put({ ID: payload.ID }, {}, payload.body);
       return commit('examples', examples);
     },
     async deleteExample({
       commit
-    }: any, payload: any) {
-      const examples = await ExampleRepository.delete(payload);
+    }: any, payload: { ID: number }) {
+      const examples = await ExampleRepository.delete({ ID: payload.ID }, {}, {});
       return commit('examples', examples);
     },
   },
 }
+export default Example;
