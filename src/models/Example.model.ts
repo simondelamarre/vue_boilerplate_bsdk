@@ -13,6 +13,9 @@ export declare type Example = {
   name: string;
 }
 
+/**
+ * This is a default query request that retrieve the API documentation logic...
+ */
 export const ExampleRequest: ExampleQuery = {
   "offset": 0,
   "limit": 100,

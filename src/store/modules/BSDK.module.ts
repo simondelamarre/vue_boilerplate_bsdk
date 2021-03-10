@@ -5,7 +5,7 @@
  * import Repository from "../../repositories/RepositoryFactory";
  **/
 
-import { Module } from "vuex";
+import { Module, Store } from "vuex";
 import BsdkRepository from "../../repositories/BsdkRepository";
 
 const BSDK: Module<any, any> = {
@@ -24,7 +24,6 @@ const BSDK: Module<any, any> = {
   },
   actions: {
     async initAPIM({ commit }: any) {
-      console.log('init apim -----------------');
       const APIM = await BsdkRepository.getInstance();
       return commit('APIM', APIM);
     },

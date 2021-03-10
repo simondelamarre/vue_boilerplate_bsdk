@@ -6,7 +6,7 @@
  **/
 
 // import store from "../index";
-import { ExampleModel, ExampleQuery } from "@/models/Example.datamodel";
+import { ExampleModel, ExampleQuery } from "@/models/Example.model";
 import { Module } from "vuex";
 import ExampleRepository from "../../repositories/Example.repository";
 
